@@ -1,0 +1,26 @@
+{% load static %}
+
+{% load i18n %}
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static 'css/logout.css'%}">
+{% endblock stylesheet %}
+  
+{% block content %}
+<div class="body_container">
+
+  <h1>Sign Out</h1>
+  
+<p>We really hate to see you go</p>
+
+<form method="post" action="{% url 'account_logout' %}" class="logout_form">
+  {% csrf_token %}
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+  
+  {% endif %}
+  <button class = "btn-logout"type="submit">{% trans 'Sign Out' %}</button>
+</form>
+</div>
+
+
+{% endblock %}

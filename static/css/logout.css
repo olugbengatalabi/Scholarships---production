@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&family=Fredoka+One&display=swap');
+
+body {
+  background-color: #f3eadb;
+  font-family: 'Outfit',
+    sans-serif;
+}
+.body_container{
+  text-align: center;
+  display: flex;
+  padding: 2rem;
+  justify-content: center;
+  align-items: center;
+  min-height: 45vh;
+  /* height: 47vh; */
+  flex-direction: column;
+  gap: 1rem;
+}
+h1 {
+  font-family: 'Fredoka One', sans-serif;
+  color: #3d1828;
+}
+.body_container p {
+  font-family: 'Outfit', sans-serif;
+}
+.btn-logout:hover:not(:disabled) {
+  
+  background-color: #e0363f;
+
+}
+
+.btn-logout {
+  display: inline-block;
+  /* background-color: #e0363f; */
+  background-color: #4d1426;
+  /* border: #3d1828 solid 3px; */
+  border: none;
+  color: #fff;
+  padding: 0.9rem 3.4rem;
+  border-radius: .2rem;
+  /* border-radius: 40% 60% 30% 50%; */
+  /* border-radius: 60% 80% 70% 80%; */
+  cursor: pointer;
+  font-family: 'Outfit',
+    sans-serif;
+  font-size: var(--normal-font-size);
+  font-weight: 300;
+  letter-spacing: 1.5px;
+  transition: .3s;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  /* border: none; */
+  -webkit-transition: all .3s ease;
+}

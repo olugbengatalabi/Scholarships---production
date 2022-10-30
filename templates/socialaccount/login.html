@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block stylesheet %}  
+<!-- <link rel="stylesheet" href="{% static 'css/styles.css'%}">
+<link rel="stylesheet" href="{% static 'css/step1.css'%}"> -->
+<link rel="stylesheet" href="{%static 'css/twitter.css'%}">
+{% endblock stylesheet %}
+
+{% load i18n %}
+{% block content %}
+<form method="post" class="twitter">
+  {% csrf_token %}
+  <button class = "twitter_btn" style="background-color: #13a2fc; cursor:pointer" type="submit">{% trans "Continue to twitter" %}<i class='bx bxl-twitter button__icon'></i></button>
+</form>
+  <div class="text">
+    <p>Raccoons</p>
+  </div>
+  <div class="container">
+    <!-- caveman left -->
+    <div class="caveman">
+      <div class="leg">
+        <div class="foot">
+          <div class="fingers"></div>
+        </div>
+      </div>
+      <div class="leg">
+        <div class="foot">
+          <div class="fingers"></div>
+        </div>
+      </div>
+      <div class="shape">
+        <div class="circle"></div>
+        <div class="circle"></div>
+      </div>
+      <div class="head">
+        <div class="eye">
+          <div class="nose"></div>
+        </div>
+        <div class="mouth"></div>
+      </div>
+      <div class="arm-right">
+        <div class="club"></div>
+      </div>
+    </div>
+    <!-- caveman right -->
+    <div class="caveman">
+      <div class="leg">
+        <div class="foot">
+          <div class="fingers"></div>
+        </div>
+      </div>
+      <div class="leg">
+        <div class="foot">
+          <div class="fingers"></div>
+        </div>
+      </div>
+      <div class="shape">
+        <div class="circle"></div>
+        <div class="circle"></div>
+      </div>
+      <div class="head">
+        <div class="eye">
+          <div class="nose"></div>
+        </div>
+        <div class="mouth"></div>
+      </div>
+      <div class="arm-right">
+        <div class="club"></div>
+      </div>
+    </div>
+  </div>
+  <a href="https://codepen.io/SofiaSergio/" target="_blank">
+    <div id="link">
+      <i class="fab fa-codepen"></i>
+      <p>watch other pens</p>
+    </div>
+  </a>
+
+{% endblock %}
+{% block extrabody %}
+<script src='https://use.fontawesome.com/releases/v5.0.7/js/all.js'></script>
+{% endblock extrabody %}

@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load account socialaccount %}
+{% load socialaccount %}
+
+
+  {% block stylesheet %}
+    <link rel="stylesheet" href="{%static 'css/styles.css'%}">
+    <link rel="stylesheet" href="{%static 'css/step1.css'%}">
+  {% endblock stylesheet %}
+  <title>
+    {% block title %}
+    Categories
+    {% endblock title %}
+
+
+{% block content %}
+  <main class="main__pc">
+    <div class="connect__button-container" >
+      <a class="home__link connect__button--flex" href="{%url 'index'%}"><i class='bx bx-home-alt-2 home__icon'></i> <span class="twitter__prompt">Home</span></a>
+
+      
+      {% if user.is_authenticated %}
+      <div style="display: flex;justify-content:center; align-items:center; gap:1.5rem">
+
+        <p>{{user.username}} </p>
+        <div class="connect__wallet-div button__div">
+          <a href="{% url 'account_logout'%}" class="connected__button connect__button--flex" style="background-color: #1da1f2;"><i class='bx bxl-twitter button__icon'></i>Sign out          
+          </a>
+        </div>
+      </div>
+      {% else %}
+      <div style="display: flex;justify-content:space-between; align-items:center; gap:1.5rem">
+        <p class="twitter__prompt">To get started </p>
+        <div class="connect__wallet-div button__div">
+          {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+
+        </div>
+      </div>
+      {% endif %}
+        
+      
+    </div>
+  
+    <div class="header__container">
+      <h1 class="header__text">
+        How best will you describe your NFT niche?
+      </h1>
+  
+    </div>
+  
+    <div class="category__container">
+      <div class="category__section">
+        <a  id = "developer" class="category__div" href="{% url 'developer_form' %}">
+          <div class="category__text">
+            <h2 class="category__header">
+              Developer
+            </h2>
+            <p class="category__subtitle"> The backbone of web3</p>
+  
+          </div>
+          <div class="category__img">
+            <img src="{%static 'img/3.png'%}" alt="">
+          </div>
+        </a>
+        <a class="category__div" href="{%url 'artist_form'%}">
+          <div class="category__text">
+            <h2 class="category__header">
+              Artist
+            </h2>
+            <p class="category__subtitle"> Picasso with the pen</p>
+  
+          </div>
+          <div class="category__img">
+            <img src="{%static 'img/apt artist.png'%}" alt="">
+          </div>
+        </a>
+        <a class="category__div" href="{%url 'community_builder_form'%}">
+          <div class="category__text">
+            <h2 class="category__header">
+              Community Builder
+            </h2>
+            <p class="category__subtitle">Moderators, Alpha hunters, Community managers, etc</p>
+          </div>
+          <div class="category__img">
+            <img src="{%static 'img/community builder.png'%}" alt="">
+          </div>
+        </a>
+      </div>
+      <div class="category__section">
+        <a class="category__div" href="{% url 'influencer_form' %}">
+          <div class="category__text">
+            <h2 class="category__header">
+              Influencer
+            </h2>
+            <p class="category__subtitle">Why do you think you're one?</p>
+  
+          </div>
+          <div class="category__img">
+            <img src="{%static 'img/influencer.png'%}" alt="">
+          </div>
+        </a>
+        <a class="category__div" href="{% url 'normie_form' %}">
+          <div class="category__text">
+            <h2 class="category__header">
+              Normie
+            </h2>
+            <p class="category__subtitle"> Flipoors, Degens, and Noobs</p>
+  
+          </div>
+          <div class="category__img">
+            <img src="{% static 'img/normie.png'%}" alt="">
+          </div>
+        </a>
+        <a class="category__div" href="{%url 'founder_form'%}">
+          <div class="category__text">
+            <h2 class="category__header">
+              Project Founder
+            </h2>
+            <p class="category__subtitle" style="opacity: 0;">Moderators, Alpha hunters, Community managers, etc</p>
+          </div>
+          <div class="category__img">
+            <img src="{%static 'img/project founder.png'%}" alt="">
+          </div>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer__pc">
+    <p class='footer__subtitle'>&#169; 2022 Apt Raccoons.</p>
+    
+  </footer>
+
+{% endblock content %}
+
+{% block script %}  
+
+
+
+{% endblock script %}

@@ -1,0 +1,175 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<title>
+  {% block title %}
+  Project Founder Application
+  {% endblock title %}
+
+</title>
+
+
+{% block stylesheet %}
+<link rel="stylesheet" href="{%static 'css/dev_form.css'%}">
+<link rel="stylesheet" href="{%static 'css/file_upload.css'%}">
+{% endblock stylesheet %}
+
+
+{% block content %}
+<div id="page" class="site main__pc">
+
+  <div class="container">
+
+    <div class="form-box">
+
+      <div class="progress">
+
+        <div class="category__div">
+          <div class="category__text">
+            <h2 class="category__header">
+              Project Founder
+            </h2>
+            <p class="category__subtitle" style="display:none"> Why do you think you're one?</p>
+
+          </div>
+          <div class="category__img">
+            <img src="{% static 'img/influencer.png'%}" alt="">
+          </div>
+        </div>
+        <ul class="progress-steps">
+          <li class="step active">
+            <span>1</span>
+            <p>Application <br> <span>Tell us about what you've built</span></p>
+          </li>
+          <li class="step">
+            <span>2</span>
+            <p>Inquiry<br><span>Its Just some more questions</span></p>
+          </li>
+          <li class="step">
+            <span>3</span>
+            <p>Suggestions<br><span>Can you help us get be better </span></p>
+          </li>
+          <li class="step">
+            <a class=" connect__button--flex connected__button" id="martian_btn">
+              Connect Martian <img src="{%static 'img/martian.png'%}" width="23px" alt=""></a>
+          </li>
+        </ul>
+      </div>
+      <form id="application_form" method="POST" enctype="multipart/form-data" action="{%url 'founder_form' %}">
+        {% csrf_token %}
+        <div class="form-one form-step active">
+          <div class="bg-svg"></div>
+          <h2 class="form__header">Tell us a little bit about yourself,<br> 
+            what you've built and why you built it.</h2>
+          <div class="application__form">
+            <p class="form__subtitle">max-length: 500</p>
+            <textarea name="application_text" maxlength="500" id="" cols="30" rows="10"
+              form="application_form">Hi, I'm {{request.user.username}}</textarea>
+            <p class="form__subtitle" style="margin-top: 1rem; letter-spacing: 1px; margin-bottom:0px">(Required)</p>
+          </div>
+
+        </div>
+        <div class="form-two form-step">
+          <div class="bg-svg"></div>
+          <h2 class="form__header">What problems did you encounter while building<br>and, how did you solve them
+          </h2>
+
+          <div class="application__form">
+            <!-- <p class="form__subtitle">max-length: 500</p> -->
+            <p class="form__subtitle">max-length: 500</p>
+            <textarea name="problems_and_solutions" maxlength="500" id="" cols="30" rows="10" form="application_form"
+              placeholder="krr krr krr"></textarea>
+            <p class="form__subtitle" style="margin-top: 1rem; letter-spacing: 1px; margin-bottom:0px">(Required)</p>
+          </div>
+          <input type="text" value="" id="wallet_address" name="wallet_address">
+          <input type="hidden" value="{{ user.socialaccount_set.all.0.get_avatar_url }}" id="avatar_url" name="avatar_url">
+
+        </div>
+        <div class="form-three form-step">
+          <div class="bg-svg"></div>
+          <h2 class="form__header">Tell us new utilities <br> you'd like to see us add?<br></h2>
+
+          <div class="application__form">
+            
+            <p class="form__subtitle">Help us be better buiders.</p>
+            <textarea name="suggestion" maxlength="500" id="" cols="30" rows="10" form="application_form"
+              placeholder="Need you to make a pet Raccoon that shoots $APT out of its ass"></textarea>
+          </div>
+          <div class="">
+            <label for="ticket_number">Ticket Number <span class="category__subtitle"> (If you have one)</span></label>
+            <input type="number" name="ticket_number" placeholder="">
+          </div>
+
+
+        </div>
+
+        <div class="btn-group">
+
+          <i disabled class='btn-prev disabled bx bx-left-arrow-alt'></i>
+          <i class='btn-next bx bx-right-arrow-alt'></i>
+
+          <button class="btn-submit" type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock content %}
+
+
+{% block script %}
+<script src="{%static 'js/forms.js' %}"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="{%static 'js/file_upload.js'%}"></script>
+<script>
+  const martian_btn = document.getElementById("martian_btn");
+  const walletinput = document.getElementById("wallet_address");
+  let martian = false;
+  const toggleMartian = () => {
+    martian ? disconnect() : getMartian();
+  }
+  const getProvider = () => {
+    if ("martian" in window) {
+
+
+      return (window.martian);
+
+    }
+    window.open("https://www.martianwallet.xyz/", "_blank");
+  };
+
+  const getMartian = async () => {
+
+    const provider = getProvider();
+    if (provider.isConnected) {
+      try {
+        const resp = await provider.connect();
+        console.log("connected")
+        martian_btn.style.background = '#19ab6e';
+        martian_btn.innerHTML = "Wallet Connected <img class='connect-img' width='23px' src='{%static 'img/martian.png'%}'>"
+        walletAddress = resp.address.toString();
+        walletinput.value = walletAddress;
+        console.log(walletinput.value)
+        martian = true
+
+      } catch (error) {
+
+      }
+    }
+
+
+  }
+
+  const disconnect = async () => {
+    const provider = getProvider()
+    await provider.disconnect();
+    martian_btn.style.background = '#4d1426';
+    martian_btn.innerHTML = "Disconnected <img class='connect-img' width='23px' src='{%static 'img/martian.png'%}'>"
+
+    martian = false;
+  }
+
+  martian_btn.addEventListener('click', toggleMartian);
+
+</script>
+{% endblock script %}

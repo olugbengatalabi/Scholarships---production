@@ -1,0 +1,39 @@
+/*=============== SCROLL BAR ===============*/
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Dirt&display=swap');
+
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600&display=swap');
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&family=Fredoka+One&display=swap');
+
+
+::-webkit-scrollbar {
+  width: 0.4rem;
+  background: #f3eadb;
+  padding-right: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+  /* background: #4d1426; */
+  background-color: #a6a096;
+  border-radius: .5rem;
+  margin-right: 0.5rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+
+}
+
+button,
+input {
+  border: none;
+  outline: none;
+}

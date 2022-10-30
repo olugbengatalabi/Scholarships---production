@@ -1,0 +1,19 @@
+{% load socialaccount %}
+
+{% get_providers as socialaccount_providers %}
+
+{% for provider in socialaccount_providers %}
+{% if provider.id == "openid" %}
+{% for brand in provider.get_brands %}
+<div class="home_div" style="text-align:center; display:flex; padding:2rem; justify-content:center; align-items:center; ">
+
+  <a title="{{brand.name}}" 
+  class="socialaccount_provider {{provider.id}} {{brand.id}} connect__button" 
+     href="{% provider_login_url provider.id openid=brand.openid_url process=process %}"
+     >{{brand.name}}kk</a>
+     {% endfor %}
+     {% endif %}
+     <a title="{{provider.name}}" class="socialaccount_provider {{provider.id}} connect__button connect__button--flex button button--flex" style="background-color: #1da1f2;"
+     href="{% provider_login_url provider.id process=process scope=scope auth_params=auth_params %}"><i class='bx bxl-twitter button__icon'></i>{{provider.name}}</a>
+     {% endfor %}
+    </div>

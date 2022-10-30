@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% load static %}
+
+  {% block stylesheet %}    
+  <link rel="stylesheet" href="{%static 'css/styles.css'%}">
+  {% endblock stylesheet %}
+    
+  {% block title %}
+  Raccaptos Scholarships
+  {% endblock title %}
+  
+
+{% block content %}
+  
+
+  
+  <header>
+    <img src="{%static 'img/logorac2.png'%}"  class="home__img"  alt="">
+    {% if user.is_authenticated %}
+    <div style="display: flex;justify-content:center; gap:1.5rem;align-items:center;">
+    
+      <p>{{user.username}} </p>
+      <div class=" button__div">
+        <a href="{% url 'account_logout'%}" class="button button--flex"
+          style="background-color: #1da1f2;"><i class='bx bxl-twitter button__icon'></i>Sign out
+        </a>
+      </div>
+    </div>
+    {% else %}
+    <div style="display: flex;justify-content:center; align-items:center; gap:1.5rem">
+      <p class="twitter__prompt">To get started </p>
+      <div class=" button__div">
+        {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+    
+      </div>
+    </div>
+    {% endif %}
+  </header>
+  <main>
+    <div class="home__div">
+      <h1 class="home__title">
+        APT Raccoons
+      </h1>
+      {% if user.is_authenticated and user.application %}
+      <p class="home__subtitle">
+        Application Recieved, checkout Twitter
+      </p>
+      
+      <div class="button__div auto__margin2">
+        <a href="https://twitter.com/AptoRaccoons" class="button button--flex" id="twitterLink" target="_blank"
+          data-show-count="false"><i class='bx bxl-twitter'></i>Twitter</a>
+
+      {% else  %}
+        <p class="home__subtitle">
+          Think you should be on Dvmpster list?
+        </p>
+        
+        <div class="button__div auto__margin2">
+          <a href="{%url 'category_picker'%}" class="button button--flex" id="twitterLink" data-show-count="false">Start
+            here</a>
+        
+        </div>
+        {% endif %}
+
+
+    </div>
+  </main>
+  <footer>
+    <div class="footer__div">
+
+      {% if user.is_authenticated and user.application %}
+      
+      {% if user.application.status == 'AC' %}
+          <div class="footer__text AC">
+            <p class='footer__subtitle button--flex '>Accepted
+              <i class='bx bx-check-double button__icon alert_icon' style="align-self: center"></i>
+            </p>
+          </div>
+      {% else %}
+          <div class="footer__text UR">
+            <p class='footer__subtitle button--flex '>Under Review
+              <i class='bx bx-glasses-alt button__icon alert_icon' style="align-self: center"></i>
+            </p>
+          </div>
+      {% endif %}
+      {% else %}
+              <div class="footer__text {{user.application.status}}">
+                <p class='footer__subtitle'>No Application
+                </p>
+                </p>
+              </div>
+        
+        {% endif %}
+          
+        
+      
+      <img src="{%static 'img/bag2.png'%}" class="bag__img" alt="" srcset="">
+    </div>
+  </footer>
+{% endblock content %}
+
+{% block script %} 
+<script src="{%static 'js/index.js' %}"></script>
+{% endblock script %}
+  
+
+</html>

@@ -1,0 +1,291 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600&display=swap');
+
+
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&family=Fredoka+One&display=swap');
+
+* {
+  margin: 0%;
+  padding: 0;
+
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f3eadb;
+  margin: 4rem 2rem 2rem 2rem;
+}
+
+p {
+
+  color: #3d1828;
+}
+
+@media screen and (max-width: 480px) {
+
+  .main__pc,
+  .footer__pc {
+    display: none;
+  }
+
+}
+ 
+@media screen and (min-width: 480px) {
+    .mobile__content {
+      display: none;
+    }
+  }
+
+
+/* connect__button  */
+.connect__button-container {
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  gap: 1rem;
+
+}
+.home__link {
+  color: #4d1426;
+  display: flex;
+  align-items: center;
+}
+
+.home__icon {
+  font-size: 1.8rem;
+  margin-bottom: 0.2rem;
+}
+
+.connect__button {
+  display: inline-flex;
+  background-color: #1da1f2;
+  
+  border: none;
+  color: #fff;
+  padding: 0.8rem 1.3rem;
+  border-radius: .2rem;
+  cursor: pointer;
+  letter-spacing: 1px;
+  
+  font-size: var(--normal-font-size);
+  font-weight: 400;
+  transition: .3s;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  
+  -webkit-transition: all .3s ease;
+  
+}
+.connected__button {
+  display: inline-flex;
+  background-color: #1da1f2;
+  
+  border: none;
+  color: #fff;
+  padding: 0.8rem 1.3rem;
+  border-radius: .2rem;
+  
+  cursor: pointer;
+  letter-spacing: 1px;
+  
+  font-size: var(--normal-font-size);
+  font-weight: 400;
+  transition: .3s;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  
+  -webkit-transition: all .3s ease;
+
+}
+
+.connect__button__icon {
+  font-size: 1.25rem;
+}
+
+.connect__button--flex {
+  display: inline-flex;
+  align-items: center;
+  column-gap: .5rem;
+}
+
+.connect__button:focus {
+  outline: none;
+}
+
+.button__div {
+  position: relative;
+  width: fit-content;
+  margin: 0px;
+
+}
+
+.connect__button::before {
+  content: " ";
+  border-radius: 20px;
+  border: 2px #1da1f2 solid;
+  position: absolute;
+  top: 5px;
+  right: 42px;
+  box-sizing: border-box;
+  width: 40px;
+  height: 40px;
+
+  transition: all 0.7s ease;
+  animation: grow 1s infinite;
+  z-index: -1;
+}
+
+.connect__wallet-div {
+  display: flex;
+  justify-content: flex-end;
+  align-self: center;
+
+}
+
+.header__container {
+  margin-top: 5rem;
+  /* display: flex; */
+  padding: 1rem;
+  /* width: 90%; */
+  line-height: 1.5;
+  margin-bottom: 3rem;
+
+}
+
+.header__text {
+  font-size: 1.3rem;
+  color: #3d1828;
+  font-weight: 500;
+  font-family: 'Outfit',
+    sans-serif;
+}
+
+.category__container {
+  display: flex;
+  flex-direction: column;
+  gap: .8rem;
+}
+
+.category__div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1.2rem 1.8rem;
+
+  background-color: #4d1426;
+
+  align-items: center;
+  border-radius: .2rem;
+  min-height: 6.8rem;
+
+  cursor: pointer;
+}
+
+.category__section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  
+}
+
+.category__text {
+  color: #f3eadb;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  max-width: 65%;
+  
+}
+
+.category__header {
+  font-weight: 200;
+  font-size: 1.5rem;
+}
+
+.category__subtitle {
+  font-size: 0.9rem;
+  font-weight: 200;
+  color: #bb9772;
+}
+
+.category__img {
+  width: 65px;
+
+}
+
+.category__icon {
+  font-size: 40px;
+  color: #f3eadb;
+}
+
+footer {
+  margin: 2rem 0 0 0.5rem;
+  max-width: 50%;
+
+  height: min-content;
+}
+
+@media screen and (min-width: 768px) {
+
+  body {
+    margin: 2rem 7.5rem 0 7.5rem;
+  }
+
+  .header__container {
+    padding: 1rem 0;
+  }
+
+  .header__text {
+    font-size: 1.3rem;
+  }
+
+  .category__container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .category__section {
+    gap: 2.5rem;
+  }
+  .home__link {
+    justify-self: flex-start;
+  }
+}
+
+@media screen and (min-width:992px) {
+
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+  }
+
+  .category__container {
+    justify-content: space-between;
+    width: 100%;
+    gap: 3rem;
+  }
+
+  .category__section {
+    width: 100%;
+  }
+
+}
+
+@media screen and (min-width: 1200px) {
+  .category__container {
+    justify-content: space-around;
+    width: 100%;
+    gap: 5rem;
+  }
+  .category__section {
+    width: 100%;
+  }
+}

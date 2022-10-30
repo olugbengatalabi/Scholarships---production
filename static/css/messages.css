@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600&display=swap');
+
+
+.messages__container{
+  font-family: 'Outfit', cursive;
+  
+  position: fixed;
+  margin-top: 0rem;
+  left: 50%;
+  top: 2rem;
+
+  transform: translate(-50%, 0);
+  align-items: center;
+
+  border-radius: .5rem;
+  z-index: 2;
+  
+}
+.alert {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 0.8rem 1.5rem;
+  gap: 0.5rem;
+  border-radius: .2rem;
+  width: 100%;
+  flex-wrap: nowrap;
+}
+.alert p {
+  letter-spacing: 0.8px;
+  width: 100%;
+  font-size: 0.9rem;
+  text-overflow: clip;
+}
+
+.alert-info {
+  
+  background-color: #3d1828;
+  
+}
+.alert-danger {
+  background-color: #e0363e;
+}
+.alert-success {
+  background-color: #40a46b;
+}
+.alert-warning {
+  background-color: #f5d57b;
+}
+
+
+.display__alert {
+  display: none;
+}
+/* 
+.alert__icon{
+  color: ;
+} */
+
+@media screen and (max-width: 480px) {
+  /* .messages__container {
+    width: 70%;
+  } */
+
+  .alert {
+    gap: 3rem;
+  }
+
+
+}
