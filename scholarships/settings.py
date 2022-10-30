@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-1&+wx-$0l!^j$mc(_2mzn1jb-!f0unpqcyy&)#z)ksky=6r3c5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -106,12 +106,7 @@ WSGI_APPLICATION = 'scholarships.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+
 
 
 # Password validation

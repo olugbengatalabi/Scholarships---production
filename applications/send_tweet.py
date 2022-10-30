@@ -1,6 +1,5 @@
 from json import load
 import os
-from turtle import title
 import tweepy
 from django.conf import settings
 from fileinput import filename
