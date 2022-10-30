@@ -200,3 +200,8 @@ MESSAGE_TAGS = {
     messages.WARNING: 'alert-warning',
     messages.SUCCESS: 'alert-success'
 }
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
